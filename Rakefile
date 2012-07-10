@@ -14,14 +14,15 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "gopollgo-client"
-  gem.homepage = "http://github.com/bensign/gopollgo-client"
+  gem.name = "gopollgo"
+  gem.homepage = "http://github.com/gopollgo/gopollgo"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
+  gem.summary = 'A Ruby wrapper to the GoPollGo API.'
   gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "bpschaechter@gmail.com"
+  gem.email = "dev@gopollgo.com"
   gem.authors = ["Ben Schaechter"]
-  # dependencies defined in Gemfile
+  gem.add_dependency "httparty"
+  gem.add_development_dependency "rspec", "~> 2.0"
 end
 Jeweler::RubygemsDotOrgTasks.new
 
@@ -47,7 +48,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "gopollgo-client #{version}"
+  rdoc.title = "gopollgo #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
