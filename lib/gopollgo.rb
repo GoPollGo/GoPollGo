@@ -10,7 +10,7 @@ module GoPollGo
   class Client
     include HTTParty
 
-    base_uri 'http://gopollgo/api'
+    base_uri 'http://gopollgo.com/api'
     
     format :json
     
