@@ -10,7 +10,7 @@ Using the wrapper and creating a poll with your app takes only a few seconds.
     require 'gopollgo'
 
     # Start a new client.
-    client = GoPollGo::Client.new("vepocqnnsogiwituheteaiak")
+    client = GoPollGo::Client.new(YOUR_API_KEY)
 
     # Create a poll.  The returned value is a Hash
     # {
