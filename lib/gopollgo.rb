@@ -6,25 +6,28 @@ module GoPollGo
   class Unauthorized        < StandardError; end
   class BadArguments        < StandardError; end
   class UnknownResponseCode < StandardError; end
-  
-  
+    
   class Client
     include HTTParty
 
-    base_uri 'http://gopollgo.com/api'
+    base_uri 'http://gopollgo/api'
     
     format :json
     
-    def initialize(key)
+    # In order to use the write portions of the API, you'll need an API key.
+    # If this is left blank, you'll still be able to use read-only portions
+    # of the API.
+    def initialize(key=nil)
       @key = key
     end
     
-    def create_poll(question, options)
+    # Create a poll on GoPollGo
+    def create_poll(poll)
       response = self.class.post('/polls',
         :query => { :key => @key },
         :body  => {
-          :question => question,
-          :options  => options
+          :question => poll[:question],
+          :options  => poll[:options]
         }
       )
       
